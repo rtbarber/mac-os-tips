@@ -1,7 +1,7 @@
 # mac-os-tips
 A collection of useful things concerning Mac OS X
 
-### Slow Terminal Login and Cleaning Log Files ###
+## Slow Terminal Login and Cleaning Log Files
 
 If you are experiencing that it takes a long time to open a new login shell, one reason could be the accumulation of system log files in the directory 
 
@@ -14,3 +14,42 @@ In my case, I could bring my terminal back to speed by simply deleting those `.a
 
 	cd /private/var/log/asl/
 	sudo rm *.asl 
+	
+	
+<br>
+<br>
+
+## Installing GNU compilers
+
+#### 1.
+
+First, you need to [download Apple's XCode IDE](https://itunes.apple.com/us/app/xcode/id497799835?mt=12) from the Mac App Store. After you installed XCode, open a new terminal window and install the XCode command line utilities via 
+
+	xcode-select --install 
+	
+	
+#### 2. 
+
+You can find the latest GCC version on [HPC Mac OS X](http://hpc.sourceforge.net), and after you downloaded the zipped tarball, e.g., `gcc-5.0-bin.tar.gz`, you can unzip it from the download directory via
+
+	gunzip gcc-5.0-bin.tar.gz
+
+and install it to `/usr/local/bin` via executing
+
+	sudo tar -xvf gcc-5.0-bin.tar -C /
+	
+	
+#### 3. 
+
+Test if the newly installed `gcc` is the default on your system by executing
+
+	which gcc
+
+which should return
+
+	/usr/local/bin/gcc
+	
+
+Otherwise you may want to add `/usr/local/bin/gcc` to your `PATH`, e.g., via
+
+	export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile
