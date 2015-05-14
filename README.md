@@ -53,3 +53,23 @@ which should return
 Otherwise you may want to add `/usr/local/bin/gcc` to your `PATH`, e.g., via
 
 	export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile
+	
+	
+<br>
+<br>
+
+## When the discoveryd process get's out of control
+
+Especially since the upgrade to OS X Yosemite (10.10) it can happen that the discoveryd (the "new" mDNSResponder) process goes crazy and uses up all the memory on your machine and renders it unresponsive and impossible to use productively. 
+
+![](./images/discoveryd.png)
+
+In my experience, it usually helped to just `unload` discoveryd via 
+
+    sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist
+
+and then reload it via
+
+    sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist
+
+
