@@ -73,3 +73,20 @@ and then reload it via
     sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.discoveryd.plist
 
 
+<br>
+<br>
+
+
+## Show and hide invisible files in Finder
+
+Invisible files are hidden in the Finder by default. To display hidden files, simply open a new terminal window and execute the command
+
+    defaults write com.apple.finder AppleShowAllFiles NO
+
+And to hide the invisible files again, execute
+
+    defaults write com.apple.finder AppleShowAllFiles YES
+
+To apply those changes, you need to relaunch the Finder. This can be done by clicking on the "Apple" button in the top-left corner of your screen, opening the "Force Quit" menu, selecting the "Finder" entry, and clicking on the "Relaunch" button.
+
+![](./images/relaunch_finder.png)
